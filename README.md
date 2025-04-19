@@ -1,9 +1,9 @@
-SwiftDeliver - Admin Dashboard
+Deliver|ASHUZ - Admin Dashboard
 =============================
 
 Overview
 --------
-SwiftDeliver is a professional, responsive admin dashboard designed for product delivery companies. This dashboard provides comprehensive tools for tracking deliveries, analyzing performance metrics, and managing operations efficiently.
+Deliver is a professional, responsive admin dashboard designed for product delivery companies. This dashboard provides comprehensive tools for tracking deliveries, analyzing performance metrics, and managing operations efficiently.
 
 Features
 --------
@@ -38,7 +38,7 @@ Technologies Used
 Installation
 ------------
 1. Clone the repository:
-   git clone https://github.com/yourusername/swiftdeliver-dashboard.git
+   git clone https://github.com/Ashutosh054-cs/Admin_Dashboard.git
 
 2. Navigate to the project directory:
    cd swiftdeliver-dashboard
