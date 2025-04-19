@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftDeliver - Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Form -->
+    <div class="login-container" id="loginContainer">
+        <div class="login-form">
+            <div class="logo">
+                <i class="fas fa-shipping-fast"></i>
+                <span>Deliver|ASHUZ</span>
+            </div>
+            <h2>Admin Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn-login">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="dashboard-container" id="dashboardContainer">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-shipping-fast"></i>
+                    <span>Deliver|ASHUZ</span>
+                </div>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <ul>
+                    <li class="active">
+                        <a href="#">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-bolt"></i>
+                            <span>Performance</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-users"></i>
+                            <span>User Management</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-truck"></i>
+                            <span>Delivery Tracking</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-boxes"></i>
+                            <span>Inventory</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="#" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Dashboard Overview</h1>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-grid">
+                <!-- Stats Cards -->
+                <div class="stats-card bg-primary">
+                    <div class="stats-info">
+                        <h3>Total Deliveries</h3>
+                        <p>1,248</p>
+                        <span class="stats-change positive">+12%</span>
+                    </div>
+                    <div class="stats-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                </div>
+
+                <div class="stats-card bg-success">
+                    <div class="stats-info">
+                        <h3>On-Time Rate</h3>
+                        <p>94%</p>
+                        <span class="stats-change positive">+3%</span>
+                    </div>
+                    <div class="stats-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </div>
+
+                <div class="stats-card bg-warning">
+                    <div class="stats-info">
+                        <h3>Pending Orders</h3>
+                        <p>87</p>
+                        <span class="stats-change negative">-5%</span>
+                    </div>
+                    <div class="stats-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                </div>
+
+                <div class="stats-card bg-danger">
+                    <div class="stats-info">
+                        <h3>Issues Reported</h3>
+                        <p>15</p>
+                        <span class="stats-change positive">-8%</span>
+                    </div>
+                    <div class="stats-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                </div>
+
+                <!-- Main Charts -->
+                <div class="chart-container delivery-chart">
+                    <div class="chart-header">
+                        <h3>Monthly Delivery Performance</h3>
+                        <select class="chart-filter">
+                            <option>Last 7 Days</option>
+                            <option selected>Last 30 Days</option>
+                            <option>Last 90 Days</option>
+                        </select>
+                    </div>
+                    <canvas id="deliveryChart"></canvas>
+                </div>
+
+                <div class="chart-container region-chart">
+                    <div class="chart-header">
+                        <h3>Delivery by Region</h3>
+                        <select class="chart-filter">
+                            <option selected>This Month</option>
+                            <option>Last Month</option>
+                            <option>This Quarter</option>
+                        </select>
+                    </div>
+                    <canvas id="regionChart"></canvas>
+                </div>
+
+                <!-- Recent Orders Table -->
+                <div class="table-container recent-orders">
+                    <div class="table-header">
+                        <h3>Recent Deliveries</h3>
+                        <button class="btn-view-all">View All</button>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tracking ID</th>
+                                <th>Customer</th>
+                                <th>Destination</th>
+                                <th>Status</th>
+                                <th>ETA</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#DEL-78945</td>
+                                <td>John Smith</td>
+                                <td>New York</td>
+                                <td><span class="status-badge in-transit">In Transit</span></td>
+                                <td>Today, 3 PM</td>
+                                <td><button class="btn-action"><i class="fas fa-eye"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td>#DEL-78944</td>
+                                <td>Sarah Johnson</td>
+                                <td>Los Angeles</td>
+                                <td><span class="status-badge delivered">Delivered</span></td>
+                                <td>Completed</td>
+                                <td><button class="btn-action"><i class="fas fa-eye"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td>#DEL-78943</td>
+                                <td>Michael Brown</td>
+                                <td>Chicago</td>
+                                <td><span class="status-badge pending">Pending</span></td>
+                                <td>Tomorrow, 11 AM</td>
+                                <td><button class="btn-action"><i class="fas fa-eye"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td>#DEL-78942</td>
+                                <td>Emily Davis</td>
+                                <td>Houston</td>
+                                <td><span class="status-badge in-transit">In Transit</span></td>
+                                <td>Today, 5:30 PM</td>
+                                <td><button class="btn-action"><i class="fas fa-eye"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td>#DEL-78941</td>
+                                <td>Robert Wilson</td>
+                                <td>Miami</td>
+                                <td><span class="status-badge delayed">Delayed</span></td>
+                                <td>Tomorrow, 9 AM</td>
+                                <td><button class="btn-action"><i class="fas fa-eye"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="right-sidebar">
+            <div class="user-profile">
+                <div class="profile-header">
+                    <div class="avatar">
+                        <img src="https://randomuser.me/api/portraits/ alt="Admin User">
+                    </div>
+                    <div class="profile-info">
+                        <h4>Admin User</h4>
+                        <p>admin@swiftdeliver.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-widget status-summary">
+                <h3>Status Summary</h3>
+                <ul>
+                    <li>
+                        <span class="status-indicator active"></span>
+                        <span>Active Deliveries</span>
+                        <span class="status-count">48</span>
+                    </li>
+                    <li>
+                        <span class="status-indicator completed"></span>
+                        <span>Completed Today</span>
+                        <span class="status-count">32</span>
+                    </li>
+                    <li>
+                        <span class="status-indicator delayed"></span>
+                        <span>Delayed</span>
+                        <span class="status-count">5</span>
+                    </li>
+                    <li>
+                        <span class="status-indicator returned"></span>
+                        <span>Returns</span>
+                        <span class="status-count">2</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget todo-list">
+                <div class="widget-header">
+                    <h3>To-Do List</h3>
+                    <button class="btn-add"><i class="fas fa-plus"></i></button>
+                </div>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="todo1" checked>
+                        <label for="todo1">Review performance metrics</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="todo2">
+                        <label for="todo2">Contact delayed deliveries</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="todo3">
+                        <label for="todo3">Update inventory levels</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="todo4">
+                        <label for="todo4">Schedule driver meeting</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget quick-analysis">
+                <h3>Quick Analysis</h3>
+                <div class="analysis-item">
+                    <div class="analysis-info">
+                        <h4>Peak Delivery Hours</h4>
+                        <p>10 AM - 2 PM</p>
+                    </div>
+                    <div class="analysis-chart">
+                        <div class="mini-bar" style="height: 30%;"></div>
+                        <div class="mini-bar" style="height: 60%;"></div>
+                        <div class="mini-bar" style="height: 90%;"></div>
+                        <div class="mini-bar" style="height: 70%;"></div>
+                        <div class="mini-bar" style="height: 40%;"></div>
+                    </div>
+                </div>
+                <div class="analysis-item">
+                    <div class="analysis-info">
+                        <h4>Most Active Region</h4>
+                        <p>Northeast</p>
+                    </div>
+                    <div class="analysis-progress">
+                        <div class="progress-bar" style="width: 65%;"></div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
